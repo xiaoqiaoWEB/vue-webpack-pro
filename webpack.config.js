@@ -2,6 +2,7 @@ const path = require('path')
 // html
 const HTMLPlugin = require('html-webpack-plugin')
 const webpack = require('webpack')
+// 分开打包
 const ExtractPlugin = require('extract-text-webpack-plugin')
 
 const isDev = process.env.NODE_ENV === 'development'
@@ -88,7 +89,8 @@ if (isDev) {
 } else {
   config.entry = {
     app: path.join(__dirname, 'src/index.js'),
-    vendor: ['vue']
+    // 框架代码
+    vendor: ['vue'] 
   }
   config.output.filename = '[name].[chunkhash:8].js'
   config.module.rules.push(
@@ -111,9 +113,11 @@ if (isDev) {
   )
   config.plugins.push(
     new ExtractPlugin('styles.[contentHash:8].css'),
+    // 单独打包 框架代码  类库代码
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor'
     }),
+    // 单独打包 webpack 代码单独打包
     new webpack.optimize.CommonsChunkPlugin({
       name: 'runtime'
     })
