@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "bulid": "cross-env NODE_ENV=production webpack --config bulid/webpack.config.client.js",
+    "bulid:client": "cross-env NODE_ENV=production webpack --config bulid/webpack.config.client.js",
+    "bulid": "npm run clean && npm run bulid:client",
+    "clean": "rimraf dist",
     "dev": "cross-env NODE_ENV=development webpack-dev-server --config bulid/webpack.config.client.js"
   },
   "repository": {
