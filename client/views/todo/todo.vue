@@ -1,22 +1,23 @@
 <template>
-  <section class="real-app">
+  <section :class="$style.realApp">
     <input
       type="text"
-      class="add-input"
+      :class="$style.addInput"
       autofocus="autofocus"
       placeholder="接下去要做什么？"
       @keyup.enter="addTodo"
     >
-    <Item 
+    <item
       :todo="todo"
       v-for="todo in filteredTodos"
-      :key= "todo.id"
-      @del="deleted" 
+      :key="todo.id"
+      @del="deleteTodo"
     />
-    <Tabs 
-      :filter="filter" 
-      :todos="todos" 
+    <tabs
+      :filter="filter"
+      :todos="todos"
       @toggle="toggleFilter"
+      @clearAllCompleted="clearAllCompleted"
     />
   </section>
 </template>
@@ -32,6 +33,10 @@ export default {
       filter: 'all'
     }
   },
+  components: {
+    Item,
+    Tabs
+  },
   computed: {
     filteredTodos () {
       if (this.filter === 'all') {
@@ -42,7 +47,7 @@ export default {
     }
   },
   methods: {
-    addTodo(e) {
+    addTodo (e) {
       this.todos.unshift({
         id: id++,
         content: e.target.value.trim(),
@@ -50,27 +55,23 @@ export default {
       })
       e.target.value = ''
     },
-    deleted(id) {
-      this.todos.splice(this.todos.findIndex(todo => {todo.id === id}), 1)
+    deleteTodo (id) {
+      this.todos.splice(this.todos.findIndex(todo => todo.id === id), 1)
     },
-    toggleFilter(state) {
+    toggleFilter (state) {
       this.filter = state
     },
-    clearAllCompleted() {
+    clearAllCompleted () {
       this.todos = this.todos.filter(todo => !todo.completed)
     }
-  },
-  components: {
-    Item,
-    Tabs
   }
 }
 </script>
 
-<style lang="stylus" scoped>
+<style lang="stylus" module>
 .real-app{
   width 600px
-  margin 50px auto 0
+  margin 80px auto 0
   box-shadow 0 0 5px #666
 }
 .add-input{

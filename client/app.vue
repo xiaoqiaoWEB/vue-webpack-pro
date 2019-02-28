@@ -11,9 +11,8 @@ import Header from './layout/header.vue'
 import Todo from './views/todo/todo.vue'
 
 export default {
-  data() {
-    return {
-    }
+  data () {
+    return {}
   },
   components: {
     Footer,
@@ -22,6 +21,7 @@ export default {
   }
 }
 </script>
+
 <style>
-@import './assets/stylus/rest.styl';
+@import './assets/stylus/rest.styl'
 </style>
