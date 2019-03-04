@@ -50,7 +50,7 @@ new Vue({
 
     Object.defineProperty(data, 'value', {
       get: () => this.value,
-      enumerable: true
+      enumerable: true // 可读取
     })
 
     return {
@@ -61,7 +61,7 @@ new Vue({
   el: '#root',
   data () {
     return {
-      value: '123'
+      value: '456'
     }
   },
   mounted () {

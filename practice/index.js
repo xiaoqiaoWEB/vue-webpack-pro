@@ -4,4 +4,6 @@
 // import './computed'
 // import './directive'
 
-import './component'
+// import './component'
+
+import './render'
