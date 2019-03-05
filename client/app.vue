@@ -1,7 +1,12 @@
 <template>
   <div class="container">
     <Header></Header>
-    <Todo></Todo>
+    <!-- <Todo></Todo> -->
+    <transition name="fade">
+      <router-view />
+    </transition>
+    <!-- <router-link to="/app">app</router-link>
+    <router-link to="/login">login</router-link> -->
     <Footer></Footer>
   </div>
 </template>
