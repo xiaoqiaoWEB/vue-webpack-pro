@@ -27,7 +27,9 @@ const defaultPluins = [
       NODE_ENV: isDev ? '"development"' : '"production"'
     }
   }),
-  new HTMLPlugin()
+  new HTMLPlugin({
+    template: path.join(__dirname, '../index.html')
+  })
 ]
 
 if (isDev) {
