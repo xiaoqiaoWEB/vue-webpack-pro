@@ -27,6 +27,20 @@ import Item from './item.vue'
 import Tabs from './tabs.vue'
 let id = 0
 export default {
+  beforeRouteEnter (to, from, next) {
+    console.log('todobefor enter')
+    next((vm) => {
+      console.log(vm)
+    })
+  },
+  beforeRouterUpdate (to, from, next) {
+    console.log('todo update enter')
+    next()
+  },
+  beforeRouteLeave (to, from, next) {
+    console.log('todo leave enter')
+    next()
+  },
   data () {
     return {
       todos: [],

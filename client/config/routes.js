@@ -4,7 +4,7 @@ import Login from '../views/login/login.vue'
 export default [
   {
     path: '/',
-    redirect: './app'
+    redirect: {name: 'App'}
   },
   {
     // path: '/app/:id'  当 props 为true 的时候  组件 可以 获得 props
