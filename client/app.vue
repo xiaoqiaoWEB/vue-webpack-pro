@@ -16,7 +16,7 @@
 import Footer from './layout/footer.vue'
 import Header from './layout/header.vue'
 import Todo from './views/todo/todo.vue'
-import {mapState, mapGetters} from 'vuex'
+import {mapState, mapGetters, mapMutations} from 'vuex'
 
 export default {
   data () {
@@ -46,8 +46,12 @@ export default {
     // })
     ...mapState({
       count: (state) => state.count
+    }),
+    ...mapGetters({})
+  },
+  methods: {
+    ...mapMutations({
     })
-    // ...mapGetters({})
   }
 }
 </script>
