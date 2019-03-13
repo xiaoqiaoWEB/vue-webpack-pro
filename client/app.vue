@@ -28,10 +28,10 @@ export default {
     Todo
   },
   mounted () {
-    let i = 0
-    setInterval(() => {
-      this.$store.commit('updataCount', i++)
-    }, 1000)
+    // let i = 0
+    // setInterval(() => {
+    //   this.$store.commit('updataCount', i++)
+    // }, 1000)
   },
   computed: {
     // count () {
