@@ -3,7 +3,7 @@ const path = require('path')
 const fs = require('fs')
 const VueServerRender = require('vue-server-renderer')
 
-const serverRender = require('./server-render')
+const serverRender = require('./server.render')
 
 const clientManifest = require('../../public/vue-ssr-client-manifest.json')
 const renderer = VueServerRender.createBundleRenderer(
